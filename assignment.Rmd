@@ -17,8 +17,10 @@ This is the pitch for the final peer graded assignment in the Developing Data Pr
 The goal of our little shiny app is to determine the price of a diamond based on its carat size.
 
 The app can be found on following link:
+http://brunohoste.shinyapps.io/Assignment/
 
 The code (UI.R and server.R) can be found on github:
+http://github.com/BrunoHoste/developing-data-products
 
 ## Method
 
