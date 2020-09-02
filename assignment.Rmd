@@ -1,0 +1,55 @@
+---
+title: "Developing data products pitch"
+subtitle: "Predicting the price of a diamond based on its carat size"
+author: "Bruno Hoste"
+date: "2-9-2020"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+This is the pitch for the final peer graded assignment in the Developing Data Products class.
+
+The goal of our little shiny app is to determine the price of a diamond based on its carat size.
+
+The app can be found on following link:
+
+The code (UI.R and server.R) can be found on github:
+
+## Method
+
+We started with the diamond dataset from the UsingR package. It has observations for carat size and price of 48 diamonds. 
+```{r,echo=TRUE,eval=TRUE,warning=FALSE,message=FALSE}
+library(UsingR)
+data("diamond")
+dim(diamond)
+head(diamond)
+```
+
+We did a simple linear regression on that dataset to make our predictions. 
+
+
+## Regression
+
+The outcome of the regression model used for our predictions turns out to be quite satisfying: significant coefficients and an R-squared of almost 98%.
+
+```{r, echo = TRUE, eval=TRUE}
+model <- lm(price~carat,data=diamond)
+summary(model)
+```
+
+## Predictions
+
+We therefore decided to use the model to make the predictions in our little shiny app. In the app, we also added
+a plot and regression line. 
+
+```{r, eval=TRUE,echo=TRUE}
+plot(diamond$carat,diamond$price,xlab = "Carat size",
+                     ylab = "Diamond price (in USD)")
+                abline(model,col='red',lwd=2)
+```
+
